@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #ffffff;
+    }
+    h1 {
+      color: #00008b;
+    }
+    h2 {
+      color: #00008b;
+    }
+    input[type="text"] {
+      border-radius: 6px;
+      padding: 6px;
+    }
+    button {
+      border-radius: 6px;
+      background-color: #00008b;
+      color: #ffffff;
+      padding: 6px 12px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #ddd;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Hugo Track</h1>
+  <h2>Enter your tracking details</h2>
+  <input type="text" id="trackingID" placeholder="Enter your tracking ID" style="width: 200px; font-size: 16px;">
+  <br><br>
+  <input type="text" id="lastName" placeholder="Enter your last name" style="width: 200px; margin-bottom: 10px; font-size: 16px;">
+  <br>
+  <button onclick="searchTracking()">Track Item</button>
+  <br><br>
+  <table id="trackingTable">
+    <tr>
+      <th>Name</th>
+      <th>Tracking Number</th>
+      <th>Item Name</th>
+      <th>Checking</th>
+      <th>Shipped</th>
+      <th>Delivered</th>
+    </tr>
+    <tr id="trackingRow">
+      <td colspan="6">No item found.</td>
+    </tr>
+  </table>
+
+  <div class="footer">
+    &copy; Hugo Track 2023
+  </div>
+
+  <script>
+    function searchTracking() {
+      var trackingID = document.getElementById("trackingID").value;
+      var lastName = document.getElementById("lastName").value;
+      var trackingRow = document.getElementById("trackingRow");
+
+      if (trackingID === "00399480" && lastName === "Ijoma") {
+        trackingRow.innerHTML = `
+          <td>Ijoma Peculiar</td>
+          <td>99399938</td>
+          <td>Travel doc</td>
+          <td>In process</td>
+          <td>Shipped</td>
+          <td>N/A</td>
+        `;
+      } else {
+        trackingRow.innerHTML = `<td colspan="6">No item found.</td>`;
+      }
+    }
+  </script>
+</body>
+</html>
